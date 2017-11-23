@@ -1,0 +1,54 @@
+1.
+
+
+Artist.where("name = ?", "Queen")
+
+# id is 51
+
+Album.where("artist_id = ?", 51).order(:title)
+
+
+2.
+
+Track.where("media_type_id = ?", 3).count
+
+# result is 214
+
+3.
+
+Genre.where("name = ?", "Hip Hop/Rap")
+
+4.
+
+Track.where("genre_id = ?", 17).count
+
+#result is 35
+
+5.
+
+Track.sum(:milliseconds)
+
+# result is 1378575827 ms
+
+6.
+
+Track.where("media_type_id = ?", 1).maximum(:unit_price)
+
+7.
+
+Track.where("media_type_id = ?", 1).limit(1).order(unit_price: :desc)
+
+
+8.
+
+Artist.limit(2).order(:created_at)
+
+9.
+
+Track.where("genre_id = ?", 15).limit(1).order(unit_price: :desc)
+
+
+10.
+
+
+Track.where("media_type_id = ?", 1).where("genre_id = ?", 15)
